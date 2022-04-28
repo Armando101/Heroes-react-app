@@ -22,7 +22,11 @@ export const HeroScreen = () => {
   return (
     <div className="row mt-5">
       <div className="col-4">
-        <img className="img-thumbnail" src={imagePath} alt={superhero} />
+        <img
+          className="img-thumbnail animate__animated animate__fadeInLeft"
+          src={imagePath}
+          alt={superhero}
+        />
       </div>
       <div className="col-8">
         <h3>{superhero}</h3>
