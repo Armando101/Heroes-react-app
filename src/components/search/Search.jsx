@@ -1,9 +1,14 @@
 import { useForm } from "../../hooks/useForm";
+import { getHeroesByName } from "../../selectors/getHeroesByName";
+import { HeroCard } from "../hero/HeroCard";
 
 export const Search = () => {
   const [{ searchText }, handleInputChange, reset] = useForm({
     searchText: "",
   });
+
+  const heroesFiltered = getHeroesByName(searchText);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(searchText);
@@ -31,6 +36,14 @@ export const Search = () => {
 
             <button className="btn btn-outline-primary mt-3">Search</button>
           </form>
+        </div>
+
+        <div className="col-7">
+          <h4>Results</h4>
+          <hr />
+          {heroesFiltered.map((hero) => (
+            <HeroCard key={hero.id} {...hero} />
+          ))}
         </div>
       </div>
     </>
