@@ -47,6 +47,15 @@ export const Search = () => {
 
         <div className="col-7">
           <h4>Results</h4>
+          {query === "" ? (
+            <div className="alert alert-info">Buscar un héroe</div>
+          ) : (
+            heroesFiltered.length === 0 && (
+              <div className="alert alert-danger">
+                There is not results for: {query}
+              </div>
+            )
+          )}
           <hr />
           {heroesFiltered.map((hero) => (
             <HeroCard key={hero.id} {...hero} />
