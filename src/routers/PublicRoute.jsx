@@ -6,5 +6,6 @@ export const PublicRouter = ({ children }) => {
   const {
     user: { logged },
   } = useContext(AuthContext);
+
   return logged ? <Navigate to={"/marvel"} /> : children;
 };
