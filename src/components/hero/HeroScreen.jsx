@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
-import batman from "../../assets/heroes/dc-batman.jpg"; // Recuso estático
+// import batman from "../../assets/heroes/dc-batman.jpg"; // Recuso estático
 
 const heroImages = require.context("../../assets/heroes", true);
 
