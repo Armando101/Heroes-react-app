@@ -1,6 +1,9 @@
 import { useMemo } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { getHeroById } from "../../selectors/getHeroById";
+import batman from "../../assets/heroes/dc-batman.jpg"; // Recuso estático
+
+const heroImages = require.context("../../assets/heroes", true);
 
 export const HeroScreen = () => {
   const { heroId } = useParams();
@@ -15,7 +18,7 @@ export const HeroScreen = () => {
     navigate(-1);
   };
 
-  const imagePath = `/assets/heroes/${hero.id}.jpg`;
+  // const imagePath = `/assets/heroes/${hero.id}.jpg`;
   const { superhero, publisher, alter_ego, first_appearance, characters } =
     hero;
 
@@ -24,7 +27,8 @@ export const HeroScreen = () => {
       <div className="col-4">
         <img
           className="img-thumbnail animate__animated animate__fadeInLeft"
-          src={imagePath}
+          // src={imagePath}
+          src={heroImages(`./${hero.id}.jpg`)}
           alt={superhero}
         />
       </div>
